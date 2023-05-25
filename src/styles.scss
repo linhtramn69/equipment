@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+html, body { height: 100%; background-color: #fff; }
+body { 
+    margin: 0; 
+    font-family: 'Inter', sans-serif; 
+    
+}
+:root{
+    --primary: #0087C3;
+    --light-primary: rgba(123, 214, 255, 0.38);
+    --stroke-primary: #025D86;
+    --grey: #d9d9d9;
+    --grey-stroke: #848484;
+    --green: #11BA36;
+    --red: #ee4444;
+    --light-red: rgba(239, 197, 197, 0.466);
+
+}
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 900,
+    'GRAD' 0,
+    'opsz' 48
+  }

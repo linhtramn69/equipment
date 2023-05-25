@@ -1,0 +1,15 @@
+<button routerLink="create" mat-stroked-button>
+    <mat-icon>add</mat-icon>
+    New Item</button>
+<button mat-stroked-button [matMenuTriggerFor]="menu"> <mat-icon>sort</mat-icon>
+    Filter Options</button>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="vertebrates">Equipment Types</button>
+    <button mat-menu-item [matMenuTriggerFor]="invertebrates">Equipment Brands</button>
+  </mat-menu>
+  <mat-menu #vertebrates="matMenu">
+    <button (click) = "this.typeSelected = type.typeName" *ngFor="let type of types" mat-menu-item >{{type.typeName}}</button>
+  </mat-menu>
+  <mat-menu #invertebrates="matMenu">
+    <button *ngFor="let brand of brands" mat-menu-item >{{brand.brandName}}</button>
+  </mat-menu>

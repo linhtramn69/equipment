@@ -1,0 +1,68 @@
+<ng-container *ngIf="edit; then formEdit; else detail">
+</ng-container>
+<ng-template #detail>
+<div class="breadcrump">
+        TMA / Equipment
+    </div>
+    <div class="title">
+        {{equipment.equipmentName}}
+    </div>
+    <div class="desc-top">
+        <mat-grid-list cols="6" rowHeight="40px">
+            <mat-grid-tile [colspan]="2" [rowspan]="1" class="desc-top-title">
+                <span>Show</span>
+                <mat-icon class="active">fiber_manual_record</mat-icon>
+                <span class="title-status">Active</span>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="1" class="desc-top-title">
+                <span>Brands</span>
+                <div class="title-desc">{{equipment.brandId.brandName}}</div>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="2">
+                <button (click) = "isEdit()" mat-fab extended class="btn btn-edit">
+                    <mat-icon class="material-symbols-outlined">edit_square</mat-icon>
+                    Edit
+                </button>
+                <button (click)= "handleDelete(equipment._id)" mat-fab extended class="btn btn-delete">
+                    <mat-icon class="material-symbols-outlined">delete</mat-icon>
+                    Delete
+                </button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="1" class="desc-top-title">
+                <span>Status</span>
+                <mat-slide-toggle (change)="isAcitve()" checked="{{equipment.status}}">{{equipment.status ? 'Active' : 'Faild'}}</mat-slide-toggle>
+                <!-- <mat-icon>fiber_manual_record</mat-icon>
+                <span class="title-status">Pending</span> -->
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="1" class="desc-top-title">
+                <span>Type</span>
+                <div class="title-desc">{{equipment.equipmentTypeId.typeName}}</div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="desc-main">
+        <div class="description">
+            <b> Description</b>
+            <p>
+                {{equipment.description}}
+                {{equipment.description}}
+                {{equipment.description}}
+                {{equipment.description}}
+            </p>
+            <div class="note">
+                <b> Note</b>
+                <p>Click to add note</p>
+            </div>
+
+        </div>
+        <div class="img">
+            <img src="{{'http://localhost:3000/' + equipment.equipmentImageUrl}}" />
+            <p>{{equipment.equipmentName}}</p>
+        </div>
+
+    </div>
+</ng-template>
+<ng-template #formEdit>
+    <app-equipment-form [equipment] = "equipment"></app-equipment-form>
+</ng-template>

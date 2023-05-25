@@ -1,0 +1,78 @@
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div class="breadcrump">
+        TMA / Equipment
+    </div>
+    <div class="title">
+        {{equipment ? 'Edit' : 'Create'}} Equipment
+    </div>
+    <div class="desc-main">
+        <div class="col-left">
+            <div class="name">
+                <b>Name</b>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Equipment name</mat-label>
+                    <p ></p>
+                    <input formControlName="equipmentName" matInput placeholder="Equipment name">
+                </mat-form-field>
+            </p>  
+            </div>
+            <div class="description">
+                <b>Description</b>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <textarea formControlName="description" matInput placeholder="Ex. It makes me feel..."></textarea>
+                    </mat-form-field>
+                </p>
+            </div>
+            <div class="Note">
+                <b>Note</b>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Note</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                    </mat-form-field>
+                </p>
+            </div>
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+        </div>
+        <div class="col-right">
+            <div class="type">
+                <b>Equipment Type</b>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Equipment Type</mat-label>
+                        <mat-select formControlName="equipmentTypeId" >
+                            <mat-option *ngFor="let type of types" [value]="type._id">
+                             {{type.typeName}}
+                            </mat-option>
+                          </mat-select>
+                    </mat-form-field>
+                </p>
+            </div>
+            <div class="type">
+                <b>Equipment Brand</b>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Equipment Brand</mat-label>
+                        <mat-select formControlName="brandId"  >
+                            <mat-option *ngFor="let brand of brands" [value]="brand._id">
+                             {{brand.brandName}}
+                            </mat-option>
+                          </mat-select>
+                    </mat-form-field>
+                </p>
+            </div>
+            <div class="img">
+                <b>Image</b>
+            <p >
+                <input *ngIf="equipment" src="{{'http://localhost:3000/' + equipment.equipmentImageUrl}}" type="image">
+                <br/>
+                <input type="file" class="file" (change)="handleFileInput($event)" placeholder="Equipment name">
+            </p>  
+            </div>
+        </div>
+
+    </div>
+</form>

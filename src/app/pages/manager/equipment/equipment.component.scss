@@ -1,0 +1,66 @@
+.breadcrump {
+    font-size: 16px;
+    font-weight: 500;
+    padding-bottom: 30px;
+}
+
+.mat-mdc-table .mdc-data-table__row {
+    height: 45px;
+    border: 1px solid #d9d9d9;
+
+    &:hover {
+        box-shadow: 2px 3px 5px #000, 2px 3px 5px #860e0e; 
+
+        .mdc-data-table__cell {
+            border-bottom: 1px solid #d9d9d9;
+            border-top: 1px solid #d9d9d9;
+        }
+    }
+}
+
+.hover {
+    background-color: rgba(240, 240, 240, 0.46);
+}
+
+.mdc-data-table__cell {
+    border: 1px solid transparent;
+}
+mat-form-field{
+    width: 70%;
+    margin-left: 30px;
+    padding: 0;
+}
+.table-manager {
+    margin-top: 30px;
+    width: 100%;
+
+    tr {
+        .material-icons {
+            font-size: 10px;
+            line-height: 4;
+            color: var(--grey);
+
+        }
+        .material-icons.active {
+            color: var(--green);
+        }
+    }
+}
+button{
+    padding: 20px;
+    font-weight: 400;
+    font-size: 15px;
+    border-top: none;
+    border-left: none;
+    border-bottom: none;
+    border-radius: 0;
+    .mat-icon{
+        color: var(--primary);
+    }
+}
+.title {
+    padding: 10px 30px;
+    background-color: var(--light-primary);
+    font-size: 16px;
+    font-weight: 500;
+}

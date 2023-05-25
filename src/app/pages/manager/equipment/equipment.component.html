@@ -1,0 +1,66 @@
+<div class="breadcrump">
+    TMA / Equipment
+</div>
+
+<button routerLink="create" mat-stroked-button>
+    <mat-icon>add</mat-icon>
+    New Item</button>
+<button mat-stroked-button [matMenuTriggerFor]="menu"> <mat-icon>sort</mat-icon>
+    Filter Options</button>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="vertebrates">Equipment Types</button>
+    <button mat-menu-item [matMenuTriggerFor]="invertebrates">Equipment Brands</button>
+    <button (click) = "isSelected('')" mat-menu-item>Reset</button>
+</mat-menu>
+<mat-menu #vertebrates="matMenu">
+    <button (click) = "isSelected(type.typeName)" *ngFor="let type of types" mat-menu-item>{{type.typeName}}</button>
+</mat-menu>
+<mat-menu #invertebrates="matMenu">
+    <button (click) = "isSelected(brand.brandName)" *ngFor="let brand of brands" mat-menu-item>{{brand.brandName}}</button>
+</mat-menu>
+<mat-form-field>
+    <mat-label>Search...</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
+
+<div class="title">
+    Filtering {{dataSource.filteredData.length}} out of {{equipments.length}} items. Filter the next 0 items
+</div>
+<!-- <app-table [data]="equipments" [displayedColumns]="displayedColumns"></app-table> -->
+<div>
+    <table mat-table [dataSource]="dataSource" class="table-manager">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element;index as i"> {{i + 1}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef> Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.equipmentTypeId.typeName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.equipmentName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="brands">
+            <th mat-header-cell *matHeaderCellDef> Brands </th>
+            <td mat-cell *matCellDef="let element"> {{element.brandId.brandName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-icon [class.active]="element.status">fiber_manual_record</mat-icon>
+                <span class="title-status">{{element.status ? 'Active' : 'Faild'}}</span>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; "></tr>
+        <tr mat-row class="example-element-row" [class.hover]="i % 2 != 0"
+            *matRowDef="let row; columns: displayedColumns; index as i" (click)="navigateDetailPage(row._id)"></tr>
+
+    </table>
+    <mat-paginator [length]="equipments.length" [pageSizeOptions]="[10, 20]" showFirstLastButtons
+        aria-label="Select page of periodic elements">
+    </mat-paginator>
+</div>

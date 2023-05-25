@@ -1,0 +1,12 @@
+button{
+    padding: 20px;
+    font-weight: 400;
+    font-size: 15px;
+    border-top: none;
+    border-left: none;
+    border-bottom: none;
+    border-radius: 0;
+    .mat-icon{
+        color: var(--primary);
+    }
+}

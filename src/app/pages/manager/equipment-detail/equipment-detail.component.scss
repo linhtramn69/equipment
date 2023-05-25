@@ -1,0 +1,114 @@
+.breadcrump {
+    font-size: 16px;
+    font-weight: 500;
+    padding-bottom: 18px;
+}
+
+.title {
+    padding: 10px 30px;
+    background-color: var(--light-primary);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.desc-top {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .desc-top-title {
+        .material-icons {
+            font-size: 12px;
+            line-height: 2;
+            color: var(--primary);
+        }
+
+        .material-icons.active {
+            font-size: 12px;
+            line-height: 2;
+            color: var(--green);
+        }
+
+        span {
+            width: 40px;
+            color: var(--grey-stroke);
+            font-weight: 100;
+            margin-right: 30px;
+        }
+
+        .title-desc,
+        .title-status {
+            color: #000;
+        }
+
+        .title-desc {
+            margin-left: 15px;
+        }
+    }
+
+    .btn {
+        font-size: 16px;
+        color: #000;
+        border-radius: 8px;
+    }
+
+    .btn-edit {
+        background-color: var(--light-primary);
+        font-weight: 400;
+
+        mat-icon {
+            font-size: 16px;
+            line-height: 1.3;
+            color: var(--stroke-primary);
+        }
+
+        margin-right: 20px;
+    }
+
+    .btn-delete {
+        background-color: var(--red);
+        font-weight: 400;
+        color: #fff;
+
+        mat-icon {
+            font-size: 18px;
+            line-height: 1.3;
+        }
+    }
+}
+
+.desc-main {
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    padding: 30px 20px;
+   
+    p {
+        margin-top: 15px;
+        text-align: justify;
+        line-height: 1.8;
+        
+    }
+
+    b {
+        font-size: 18px;
+    }
+    .img{
+        margin-top: 40px;
+        margin-left: 150px;
+        img{
+            width: 250px;
+        }
+        p{
+            margin-left: 100px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+    }
+    .note{
+        margin-top: 30px;
+        display: block;
+        p{
+            font-style: italic;
+        }
+
+    }
+}
